@@ -18,11 +18,24 @@ export class Task extends Component<ITaskProps, ITaskState> {
         this.state = { isDone: false };
     }
 
+    setDone = () => {
+        this.setState({
+            isDone: true
+        })
+    }
+
     render() {
+        let color: string = 'blue';
+        if (this.state.isDone) {
+            color = 'red';
+        }
         return (
             <div>
-                <p>Task TODO #{this.props.numOfTask}</p>
-                <p>{this.props.taskText}</p>
+                <button onClick={this.setDone} style={{ backgroundColor: color }}>
+                    {console.log("kliknieto stan taska: " + this.state.isDone)}
+                    <p>Task TODO #{this.props.numOfTask}</p>
+                    <p>{this.props.taskText}</p>
+                </button>
             </div>
         )
     }
