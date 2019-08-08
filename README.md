@@ -1,4 +1,4 @@
-##Zgłoszenie Letnia Szkoła Programowania ecom 2019
+## Zgłoszenie Letnia Szkoła Programowania ecom 2019
 
 Zadanie do wykonania w technologii React (z TypeScript), podpunkt *Ekstra* jest dodatkowy.
 
