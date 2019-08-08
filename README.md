@@ -3,6 +3,7 @@
 Zadanie do wykonania w technologii React (z TypeScript), podpunkt *Ekstra* jest dodatkowy.
 
 1. TODO List
+
 Prosta aplikacja pozwalająca dodawać zadania do wykonania.
 -	Użytkownik aplikacji może dodać nowe zadanie.
 -	Zadania wyświetlane są w postaci kafli.
