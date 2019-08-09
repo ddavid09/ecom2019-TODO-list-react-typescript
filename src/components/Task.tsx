@@ -6,24 +6,31 @@ interface ITaskProps {
 }
 
 interface ITaskState {
+    text: string;
     isDone: boolean;
     color: string;
 }
 
 
 export class Task extends Component<ITaskProps, ITaskState> {
-
     state: ITaskState;
 
     constructor(props: ITaskProps) {
         super(props);
-        this.state = { isDone: false, color: 'blue' };
+        this.state = { text: this.props.taskText, isDone: false, color: 'blue' };
+        console.log("utworzono nowego taska: #" + this.props.id + " " + this.props.taskText);
     }
 
     setDone = () => {
         this.setState({
             isDone: true,
             color: 'red'
+        })
+    }
+
+    changeText = (txt: string) => {
+        this.setState({
+            text: txt,
         })
     }
 
