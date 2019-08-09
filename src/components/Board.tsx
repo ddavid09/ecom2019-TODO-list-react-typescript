@@ -6,7 +6,7 @@ export class Board extends Component {
     render() {
         return (
             <div>
-                <Task numOfTask={1} taskText="Posprzątaj pokój" />
+                <Task id={1} taskText="Posprzątaj pokój" />
             </div>
         )
     }
