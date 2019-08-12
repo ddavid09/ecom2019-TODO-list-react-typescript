@@ -1,0 +1,57 @@
+.App {
+    background-color: rgb(205, 237, 247)
+}
+
+header {
+    background-color: rgb(63, 66, 68);
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    font-size: 3em;
+    font-weight: bold;
+    color: white;
+}
+
+.input-section input{
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px; 
+    float: left;
+    width: 65.5%;
+    height: 50px;
+    margin-top: 5px;
+    margin-left: 1%;
+    border-radius: 4px;
+    border: 1px solid #ccc
+}
+
+.input-section button{
+    
+    font-family: Arial, Helvetica, sans-serif;
+    float: left;
+    width: 30%;
+    height: 53px;
+    font-size: 24px;  
+    background-color: rgb(100, 100, 100);
+    color: white;
+    border: 0;
+    border-radius: 4px;
+    margin-left: 1.5%;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.input-section button:hover{
+    background-color: rgb(145, 145, 145) 
+}
+
+.input-section{
+    background-color: rgb(190, 190, 190);
+    height: 65px
+}
+
+
+
+
+
+

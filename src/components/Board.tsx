@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Task from './Task';
 import { TaskModel } from '../models/TaskModel';
+import '../App.css';
 
 interface IBoardProps {
     tasks: TaskModel[];
@@ -13,8 +14,7 @@ export class Board extends Component<IBoardProps> {
 
     render() {
         return (
-            <div>
-                <ul>
+            <div className = 'board'>
                     {this.props.tasks.map(task => (
                         <Task
                             markAsDoneFunc={this.props.markAsDoneFunc}
@@ -24,7 +24,6 @@ export class Board extends Component<IBoardProps> {
                             text={task.text}
                         />
                     ))}
-                </ul>
             </div>
         )
     }

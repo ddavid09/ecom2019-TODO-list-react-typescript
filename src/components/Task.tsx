@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { TaskModel } from '../models/TaskModel';
+import '../App.css';
 
 interface ITaskState {
     done: boolean;

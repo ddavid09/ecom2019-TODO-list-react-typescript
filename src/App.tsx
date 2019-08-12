@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TaskAddForm from './components/TaskAddForm';
 import Board from './components/Board';
 import { TaskModel } from './models/TaskModel';
+import './App.css';
 
 interface IAppState {
   tasks: TaskModel[];
@@ -37,12 +38,12 @@ export class App extends Component<{}, IAppState> {
 
   private markTaskAsDone = (id: number) => {
     const tempTasks: TaskModel[] = this.state.tasks.slice();
-    tempTasks[id-1].done = true;
+    tempTasks[id - 1].done = true;
     this.setState({
       tasks: tempTasks,
     });
     localStorage.setItem('tasks', JSON.stringify(this.state.tasks));
-    
+
   }
 
   componentDidMount() {
@@ -56,13 +57,16 @@ export class App extends Component<{}, IAppState> {
 
   render() {
     return (
-      <div>
-        <h1>Tasks TODO list</h1>
-        <TaskAddForm
-          onChange={this.handleInputTextChange}
-          onAdd={this.addTask}
-          inputText={this.state.newTaskText}
-        />
+      <div className='App'>
+        <header>Simple TODO List</header>
+        <div className='input-section'>
+          <TaskAddForm
+            onChange={this.handleInputTextChange}
+            onAdd={this.addTask}
+            inputText={this.state.newTaskText}
+          />
+        </div>
+
         <Board markAsDoneFunc={this.markTaskAsDone} tasks={this.state.tasks} />
       </div >
     );

@@ -1,4 +1,6 @@
 import React, { FunctionComponent } from 'react'
+import '../App.css';
+
 
 interface IFormProps {
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -12,8 +14,8 @@ const TaskAddForm: FunctionComponent<IFormProps> = ({
     inputText
 }) => (
         <form onSubmit={onAdd}>
-            <input onChange={onChange} value={inputText} />
-            <button type="submit">Add a new task</button>
+            <input onChange={onChange} value={inputText} placeholder='Type in task TODO...' />
+            <button className='button' type="submit">Add a new task</button>
         </form>
     );
 
