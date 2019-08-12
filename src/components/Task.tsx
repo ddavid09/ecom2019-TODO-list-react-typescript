@@ -1,47 +1,30 @@
 import React, { Component } from 'react'
-
-interface ITaskProps {
-    id: number;
-    taskText: string;
-    done: boolean;
-}
+import { TaskModel } from '../models/TaskModel';
 
 interface ITaskState {
-    text: string;
-    isDone: boolean;
-    color: string;
+    done: boolean;
 }
-
-
-export class Task extends Component<ITaskProps, ITaskState> {
+export class Task extends Component<TaskModel, ITaskState> {
     state: ITaskState;
 
-    constructor(props: ITaskProps) {
+    constructor(props: TaskModel) {
         super(props);
 
-        this.state = { text: this.props.taskText, isDone: this.props.done, color: 'blue' };
-        console.log("utworzono nowego taska: #" + this.props.id + " " + this.props.taskText);
+        this.state = { done: this.props.done };
+        console.log("utworzono nowego taska: #" + this.props.id + " " + this.props.text);
     }
 
-    setDone = () => {
-        this.setState({
-            isDone: true,
-            color: 'red'
-        })
-    }
-
-    changeText = (txt: string) => {
-        this.setState({
-            text: txt,
-        })
-    }
 
     render() {
-        return (
+        let color: string;
+        if (this.state.done) color = 'red'
+        else color = 'blue'
+
+                return (
             <div>
-                <button onClick={this.setDone} style={{ backgroundColor: this.state.color }}>
+                <button style={{ backgroundColor: color }}>
                     <p>Task TODO #{this.props.id}</p>
-                    <p>{this.props.taskText}</p>
+                    <p>{this.props.text}</p>
                 </button>
             </div>
         )

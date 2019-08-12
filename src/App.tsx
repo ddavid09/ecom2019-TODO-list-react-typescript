@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Task from './components/Task';
 import TaskAddForm from './components/TaskAddForm';
 import Board from './components/Board';
+import { TaskModel } from './models/TaskModel';
 
 interface IAppState {
-  tasks: Task[];
+  tasks: TaskModel[];
   newTaskText: string
 }
 
@@ -17,9 +17,9 @@ export class App extends Component<{}, IAppState> {
   private addTask = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    let tempTasks: Task[] = [];
+    let tempTasks: TaskModel[] = [];
     tempTasks = this.state.tasks;
-    tempTasks.push(new Task({ id: this.state.tasks.length + 1, taskText: this.state.newTaskText, done: false }));
+    tempTasks.push({ id: this.state.tasks.length + 1, text: this.state.newTaskText, done: false });
     this.setState({
       tasks: tempTasks,
       newTaskText: ""

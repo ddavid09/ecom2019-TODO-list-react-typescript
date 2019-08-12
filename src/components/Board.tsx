@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import Task from './Task';
+import { TaskModel } from '../models/TaskModel';
 
 interface IBoardProps {
-    tasks: Task[];
+    tasks: TaskModel[];
 }
 
 export class Board extends Component<IBoardProps> {
@@ -14,10 +15,10 @@ export class Board extends Component<IBoardProps> {
                 <ul>
                     {this.props.tasks.map(task => (
                         <Task
-                            key={task.props.id}
-                            id={task.props.id}
-                            done={task.props.done}
-                            taskText={task.props.taskText}
+                            key={task.id}
+                            id={task.id}
+                            done={task.done}
+                            text={task.text}
                         />
                     ))}
                 </ul>
