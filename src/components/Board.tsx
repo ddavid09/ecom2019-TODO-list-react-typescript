@@ -13,7 +13,7 @@ export class Board extends Component<IBoardProps> {
             <div>
                 <ul>
                     {this.props.tasks.map(task => (
-                        <Task id={task.props.id} taskText={task.props.taskText} />
+                        <Task key={task.props.id} id={task.props.id} taskText={task.props.taskText} />
                     ))}
                 </ul>
             </div>
