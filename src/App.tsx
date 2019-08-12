@@ -22,7 +22,9 @@ export class App extends Component<{}, IAppState> {
     tempTasks.push(new Task({ id: this.state.tasks.length + 1, taskText: this.state.newTaskText }));
     this.setState({
       tasks: tempTasks,
+      newTaskText: ""
     });
+
   };
 
   private handleInputTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {

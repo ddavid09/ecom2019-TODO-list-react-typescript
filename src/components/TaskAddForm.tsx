@@ -12,7 +12,7 @@ const TaskAddForm: FunctionComponent<IFormProps> = ({
     inputText
 }) => (
         <form onSubmit={onAdd}>
-            <input onChange={onChange} />
+            <input onChange={onChange} value={inputText} />
             <button type="submit">Add a new task</button>
         </form>
     );
