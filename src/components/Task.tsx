@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 interface ITaskProps {
     id: number;
     taskText: string;
+    done: boolean;
 }
 
 interface ITaskState {
@@ -17,7 +18,8 @@ export class Task extends Component<ITaskProps, ITaskState> {
 
     constructor(props: ITaskProps) {
         super(props);
-        this.state = { text: this.props.taskText, isDone: false, color: 'blue' };
+
+        this.state = { text: this.props.taskText, isDone: this.props.done, color: 'blue' };
         console.log("utworzono nowego taska: #" + this.props.id + " " + this.props.taskText);
     }
 

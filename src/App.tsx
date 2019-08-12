@@ -19,11 +19,12 @@ export class App extends Component<{}, IAppState> {
 
     let tempTasks: Task[] = [];
     tempTasks = this.state.tasks;
-    tempTasks.push(new Task({ id: this.state.tasks.length + 1, taskText: this.state.newTaskText }));
+    tempTasks.push(new Task({ id: this.state.tasks.length + 1, taskText: this.state.newTaskText, done: false }));
     this.setState({
       tasks: tempTasks,
       newTaskText: ""
     });
+    localStorage.setItem('tasks', JSON.stringify(this.state.tasks));
 
   };
 
@@ -34,6 +35,16 @@ export class App extends Component<{}, IAppState> {
       newTaskText: tempString,
     })
   };
+
+  componentDidMount() {
+    const restoredState = JSON.parse(localStorage.getItem('tasks') || '{}');
+    if (restoredState !== {}) {
+      this.setState({
+        tasks: restoredState,
+      })
+    }
+  }
+
 
   render() {
     return (
