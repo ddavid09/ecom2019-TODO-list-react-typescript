@@ -34,7 +34,7 @@ export class Task extends Component<TaskComponentProps, ITaskState> {
         return (
             <div>
                 <button className='taskbtn' onClick={this.onClick} style={{ backgroundColor: color }}>
-                    <p>Task TODO #{this.props.id}</p>
+                    <h2>Task TODO #{this.props.id}</h2>
                     <p>{this.props.text}</p>
                 </button>
             </div>

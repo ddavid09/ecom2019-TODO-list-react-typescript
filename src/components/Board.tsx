@@ -14,16 +14,17 @@ export class Board extends Component<IBoardProps> {
 
     render() {
         return (
-            <div className = 'board'>
-                    {this.props.tasks.map(task => (
-                        <Task
-                            markAsDoneFunc={this.props.markAsDoneFunc}
-                            key={task.id}
-                            id={task.id}
-                            done={task.done}
-                            text={task.text}
-                        />
-                    ))}
+            <div className='container'>
+                {this.props.tasks.map(task => (
+                    <Task
+                        markAsDoneFunc={this.props.markAsDoneFunc}
+                        key={task.id}
+                        id={task.id}
+                        done={task.done}
+                        text={task.text}
+                    />
+
+                ))}
             </div>
         )
     }
