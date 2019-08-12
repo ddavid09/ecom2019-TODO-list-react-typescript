@@ -17,8 +17,7 @@ export class App extends Component<{}, IAppState> {
   private addTask = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    let tempTasks: TaskModel[] = [];
-    tempTasks = this.state.tasks;
+    const tempTasks: TaskModel[] = this.state.tasks.slice();
     tempTasks.push({ id: this.state.tasks.length + 1, text: this.state.newTaskText, done: false });
     this.setState({
       tasks: tempTasks,
@@ -35,6 +34,16 @@ export class App extends Component<{}, IAppState> {
       newTaskText: tempString,
     })
   };
+
+  private markTaskAsDone = (id: number) => {
+    const tempTasks: TaskModel[] = this.state.tasks.slice();
+    tempTasks[id-1].done = true;
+    this.setState({
+      tasks: tempTasks,
+    });
+    localStorage.setItem('tasks', JSON.stringify(this.state.tasks));
+    
+  }
 
   componentDidMount() {
     const restoredState = JSON.parse(localStorage.getItem('tasks') || '[]');
@@ -54,7 +63,7 @@ export class App extends Component<{}, IAppState> {
           onAdd={this.addTask}
           inputText={this.state.newTaskText}
         />
-        <Board tasks={this.state.tasks} />
+        <Board markAsDoneFunc={this.markTaskAsDone} tasks={this.state.tasks} />
       </div >
     );
   }

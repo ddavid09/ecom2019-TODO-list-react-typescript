@@ -4,6 +4,8 @@ import { TaskModel } from '../models/TaskModel';
 
 interface IBoardProps {
     tasks: TaskModel[];
+    markAsDoneFunc: (id: number) => void;
+
 }
 
 export class Board extends Component<IBoardProps> {
@@ -15,6 +17,7 @@ export class Board extends Component<IBoardProps> {
                 <ul>
                     {this.props.tasks.map(task => (
                         <Task
+                            markAsDoneFunc={this.props.markAsDoneFunc}
                             key={task.id}
                             id={task.id}
                             done={task.done}
