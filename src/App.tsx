@@ -37,12 +37,11 @@ export class App extends Component<{}, IAppState> {
   };
 
   componentDidMount() {
-    const restoredState = JSON.parse(localStorage.getItem('tasks') || '{}');
-    if (restoredState !== {}) {
-      this.setState({
-        tasks: restoredState,
-      })
-    }
+    const restoredState = JSON.parse(localStorage.getItem('tasks') || '[]');
+    this.setState({
+      tasks: restoredState,
+    })
+
   }
 
 
