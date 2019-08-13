@@ -108,7 +108,13 @@ header {
 }
 
 .overlay-button-delete img{
+    opacity: 0.7;
 }
+
+.overlay-button-mark img{
+    opacity: 0.7;
+}
+
 
 .overlay-button-delete:hover{
     background:rgba(138, 138, 131, 0.7) ;
