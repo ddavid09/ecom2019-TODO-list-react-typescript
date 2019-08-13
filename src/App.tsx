@@ -24,7 +24,7 @@ export class App extends Component<{}, IAppState> {
       tasks: tempTasks,
       newTaskText: ""
     });
-    localStorage.setItem('tasks', JSON.stringify(this.state.tasks));
+    localStorage.setItem('tasks', JSON.stringify(tempTasks));
 
   };
 
