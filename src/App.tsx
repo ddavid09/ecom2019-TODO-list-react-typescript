@@ -43,7 +43,7 @@ export class App extends Component<{}, IAppState> {
     this.setState({
       tasks: tempTasks,
     });
-    localStorage.setItem('tasks', JSON.stringify(this.state.tasks));
+    localStorage.setItem('tasks', JSON.stringify(tempTasks));
 
   }
 
@@ -54,7 +54,17 @@ export class App extends Component<{}, IAppState> {
     this.setState({
       tasks: tempTasks,
     });
-    localStorage.setItem('tasks', JSON.stringify(this.state.tasks));
+    localStorage.setItem('tasks', JSON.stringify(tempTasks));
+  }
+
+  private backTask = (id: number) => {
+    const tempTasks: TaskModel[] = this.state.tasks.slice();
+    const indexToMarkUp: number = tempTasks.findIndex((element: TaskModel) => { return element.id === id });
+    tempTasks[indexToMarkUp].done = false;
+    this.setState({
+      tasks: tempTasks,
+    });
+    localStorage.setItem('tasks', JSON.stringify(tempTasks));
   }
 
   componentDidMount() {
@@ -78,7 +88,7 @@ export class App extends Component<{}, IAppState> {
           />
         </div>
 
-        <Board deleteTask={this.deleteTask} markAsDoneFunc={this.markTaskAsDone} tasks={this.state.tasks} />
+        <Board backTask={this.backTask} deleteTask={this.deleteTask} markAsDoneFunc={this.markTaskAsDone} tasks={this.state.tasks} />
       </div >
     );
   }
