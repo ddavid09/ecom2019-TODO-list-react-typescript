@@ -6,7 +6,7 @@ interface ITaskState {
     done: boolean;
 }
 
-interface TaskComponentProps extends TaskModel{
+interface TaskComponentProps extends TaskModel {
     markAsDoneFunc: (id: number) => void;
 }
 export class Task extends Component<TaskComponentProps, ITaskState> {
@@ -26,16 +26,26 @@ export class Task extends Component<TaskComponentProps, ITaskState> {
         this.props.markAsDoneFunc(this.props.id);
     }
 
+
     render() {
         let color: string;
-        if (this.state.done) color = 'red'
-        else color = 'blue'
+        let text: any;
+        let textColor: string;
+        if (this.state.done){
+            color = '#96968f';
+            text = <s>{this.props.text}</s>;
+            textColor = "#696964";
+        } 
+        else{
+            color = '#ffff61';
+            text = this.props.text;
+            textColor = "#000000";
+        } 
 
         return (
-            <div>
-                <button className='taskbtn' onClick={this.onClick} style={{ backgroundColor: color }}>
-                    <h2>Task TODO #{this.props.id}</h2>
-                    <p>{this.props.text}</p>
+            <div className='taskbtn'>
+                <button onClick={this.onClick} style={{ backgroundColor: color, color: textColor }}>
+                    <p>{text}</p>
                 </button>
             </div>
         )
