@@ -19,7 +19,7 @@ export class App extends Component<{}, IAppState> {
     event.preventDefault();
 
     const tempTasks: TaskModel[] = this.state.tasks.slice();
-    tempTasks.push({ id: this.state.tasks.length + 1, text: this.state.newTaskText, done: false });
+    tempTasks.push({ id: this.state.tasks.length, text: this.state.newTaskText, done: false });
     this.setState({
       tasks: tempTasks,
       newTaskText: ""
@@ -38,12 +38,23 @@ export class App extends Component<{}, IAppState> {
 
   private markTaskAsDone = (id: number) => {
     const tempTasks: TaskModel[] = this.state.tasks.slice();
-    tempTasks[id - 1].done = true;
+    const indexToMarkUp: number = tempTasks.findIndex((element: TaskModel) => { return element.id === id });
+    tempTasks[indexToMarkUp].done = true;
     this.setState({
       tasks: tempTasks,
     });
     localStorage.setItem('tasks', JSON.stringify(this.state.tasks));
 
+  }
+
+  private deleteTask = (id: number) => {
+    const tempTasks: TaskModel[] = this.state.tasks.slice();
+    const indexToDelete: number = tempTasks.findIndex((element: TaskModel) => { return element.id === id });
+    tempTasks.splice(indexToDelete, 1);
+    this.setState({
+      tasks: tempTasks,
+    });
+    localStorage.setItem('tasks', JSON.stringify(this.state.tasks));
   }
 
   componentDidMount() {
@@ -67,7 +78,7 @@ export class App extends Component<{}, IAppState> {
           />
         </div>
 
-        <Board markAsDoneFunc={this.markTaskAsDone} tasks={this.state.tasks} />
+        <Board deleteTask={this.deleteTask} markAsDoneFunc={this.markTaskAsDone} tasks={this.state.tasks} />
       </div >
     );
   }

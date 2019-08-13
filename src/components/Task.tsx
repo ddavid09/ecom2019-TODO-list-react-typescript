@@ -11,6 +11,7 @@ interface ITaskState {
 
 interface TaskComponentProps extends TaskModel {
     markAsDoneFunc: (id: number) => void;
+    deleteTask: (id: number) => void;
 }
 export class Task extends Component<TaskComponentProps, ITaskState> {
     state: ITaskState;
@@ -22,11 +23,15 @@ export class Task extends Component<TaskComponentProps, ITaskState> {
         console.log("utworzono nowego taska: #" + this.props.id + " " + this.props.text);
     }
 
-    onClick = () => {
+    markUp = () => {
         this.setState({
             done: true
         })
         this.props.markAsDoneFunc(this.props.id);
+    }
+
+    delete = () => {
+        this.props.deleteTask(this.props.id);
     }
 
     mouseEnter = () => {
@@ -56,15 +61,14 @@ export class Task extends Component<TaskComponentProps, ITaskState> {
         return (
             <div
                 className='taskbtn'
-                onClick={this.onClick}
                 style={{ backgroundColor: color, color: textColor }}
                 onMouseEnter={this.mouseEnter}
                 onMouseLeave={this.mouseLeave}
             >
                 {this.state.isMouseInside ? 
                 <div className='taskbtn-overlay'>
-                    <button className='overlay-button-delete'><img src={CancelImg} alt="DELETE"/></button>
-                    <button className='overlay-button-mark'><img src={MarkUpImg} alt="MARK UP"/></button>
+                    <button onClick={this.delete} className='overlay-button-delete'><img src={CancelImg} alt="DELETE"/></button>
+                    <button onClick={this.markUp} className='overlay-button-mark'><img src={MarkUpImg} alt="MARK UP"/></button>
                 </div> : null}
                 <p>{text}</p>
             </div>

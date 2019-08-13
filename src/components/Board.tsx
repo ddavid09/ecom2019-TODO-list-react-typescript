@@ -6,6 +6,7 @@ import '../App.css';
 interface IBoardProps {
     tasks: TaskModel[];
     markAsDoneFunc: (id: number) => void;
+    deleteTask: (id: number) => void;
 
 }
 
@@ -17,6 +18,7 @@ export class Board extends Component<IBoardProps> {
             <div className='container'>
                 {this.props.tasks.map(task => (
                     <Task
+                        deleteTask={this.props.deleteTask}
                         markAsDoneFunc={this.props.markAsDoneFunc}
                         key={task.id}
                         id={task.id}
