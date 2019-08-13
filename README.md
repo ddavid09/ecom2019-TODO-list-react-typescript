@@ -2,7 +2,7 @@
 
 Zadanie do wykonania w technologii React (z TypeScript), podpunkt *Ekstra* jest dodatkowy.
 
-1. TODO List
+**1. TODO List**
 
 Prosta aplikacja pozwalająca dodawać zadania do wykonania.
 -	Użytkownik aplikacji może dodać nowe zadanie.
@@ -11,3 +11,16 @@ Prosta aplikacja pozwalająca dodawać zadania do wykonania.
 
 
 *Ekstra*: przechowywanie zadań - zadania widoczne są po odświeżeniu strony lub po ponownym wejściu na stronę.
+
+### Komentarz z wykonania
+
+Funkcjonalność zadanej aplikacji została rozszerzona o możliwość usuwania zadań oraz przywracania im statusu - zadania niewykonanego.
+
+#### Prezentacja aplikacji
+
+https://ddavid09.github.io/TODO-list-react-typescript/
+
+---
+
+![realased-screen](images/released-img.png)
+
