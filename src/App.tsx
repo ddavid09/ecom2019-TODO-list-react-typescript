@@ -17,9 +17,11 @@ export class App extends Component<{}, IAppState> {
 
   private addTask = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     const tempTasks: TaskModel[] = this.state.tasks.slice();
-    tempTasks.push({ id: this.state.tasks.length, text: this.state.newTaskText, done: false });
+    let newTaskId: number;
+    if(tempTasks.length > 0) newTaskId= tempTasks[tempTasks.length-1].id + 1
+    else newTaskId = 1;
+    tempTasks.push({ id: newTaskId, text: this.state.newTaskText, done: false });
     this.setState({
       tasks: tempTasks,
       newTaskText: ""
