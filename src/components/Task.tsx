@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { TaskModel } from '../models/TaskModel';
 import '../App.css';
+import CancelImg from '../resources/cancel.png'
+import MarkUpImg from '../resources/checked.png'
 
 interface ITaskState {
     done: boolean;
@@ -61,8 +63,8 @@ export class Task extends Component<TaskComponentProps, ITaskState> {
             >
                 {this.state.isMouseInside ? 
                 <div className='taskbtn-overlay'>
-                    <button className='overlay-button-delete'>Delete</button>
-                    <button className='overlay-button-mark'>Mark up</button>
+                    <button className='overlay-button-delete'><img src={CancelImg} alt="DELETE"/></button>
+                    <button className='overlay-button-mark'><img src={MarkUpImg} alt="MARK UP"/></button>
                 </div> : null}
                 <p>{text}</p>
             </div>
