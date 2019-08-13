@@ -22,7 +22,6 @@ export class Task extends Component<TaskComponentProps, ITaskState> {
         super(props);
 
         this.state = { done: this.props.done, isMouseInside: false };
-        console.log("utworzono nowego taska: #" + this.props.id + " " + this.props.text);
     }
 
     markUp = () => {

@@ -30,7 +30,6 @@ export class App extends Component<{}, IAppState> {
 
   private handleInputTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     let tempString: string = event.target.value;
-    console.log(tempString);
     this.setState({
       newTaskText: tempString,
     })
